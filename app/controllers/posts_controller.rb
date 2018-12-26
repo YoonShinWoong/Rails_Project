@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   # C 만들기------------------------------------------------
   def new
   end
@@ -8,6 +10,7 @@ class PostsController < ApplicationController
     @post = Post.new 
     @post.title = params[:title]
     @post.content = params[:content]
+    @post.user_id = params[:user_id]
     @post.save
     
     redirect_to "/posts/index"
@@ -29,20 +32,29 @@ class PostsController < ApplicationController
  
   def update
     @post = Post.find(params[:id]) # 해당 Post 객체 찾기
-    @post.title = params[:title]
-    @post.content = params[:content]
-    @post.save
-    
-    redirect_to "/posts/show/#{@post.id}"
-    
+ 
+    # 같을 경우에만 수정
+    if current_user.id == @post.user_id
+      @post.title = params[:title]
+      @post.content = params[:content]
+      @post.save
+      
+      redirect_to "/posts/show/#{@post.id}"
+    else
+      redirect_to "/posts/show/#{@post.id}"
+    end
   end
  
   # D 삭제하기------------------------------------------------  
   def destroy
-    
-   @post = Post.find(params[:id]) # 해당 Post 객체 찾기
-   @post.destroy
- 
-   redirect_to "/posts/index"
+   
+    @post = Post.find(params[:id]) # 해당 Post 객체 찾기
+    # 같을 경우에만 삭제
+    if current_user.id == @post.user_id 
+      @post.destroy
+      redirect_to "/posts/index"
+    else
+      redirect_to "/posts/index"
+    end
   end
 end

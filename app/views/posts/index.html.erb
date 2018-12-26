@@ -15,7 +15,7 @@
             <tr>
             <th scope="row"><%=@num%></th>
             <td><a href="/posts/show/<%=p.id%>"><%=p.title%></a></td>
-            <td>user</td>
+            <td><%=p.user.username%></td>
             </tr>
             <% @num += 1 %>
         <% end %>

@@ -4,6 +4,7 @@
  
     <div class="alert alert-dark" role="alert">
         <h2><%=@post.title%></h2>
+        <h4><%= @post.user.username %></h4>
         <hr>
         <%=@post.content%>
     </div>
@@ -15,6 +16,7 @@
     <form action="/replies/create" method="post">
         <input type="text" name="content" placeholder="댓글 내용을 입력하세요" style="width:80%"></input> 
         <input type="hidden" name="post_id" value=<%= @post.id %> ></input>
+        <input type="hidden" name="user_id" value=<%= current_user.id %> ></input>
         <button type="submit" class="btn btn-primary">작성</button>
     </form>
     
