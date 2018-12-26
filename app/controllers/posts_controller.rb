@@ -57,4 +57,18 @@ class PostsController < ApplicationController
       redirect_to "/posts/index"
     end
   end
+  
+
+  # 검색하기 -------------------------------------------------  
+  def search
+      if params[:cate] == "1"
+        @posts =Post.where("title LIKE ?", "%#{params[:q]}%")
+      elsif params[:cate] == "2"
+        @posts =Post.where("content LIKE ?", "%#{params[:q]}%")
+      elsif params[:cate] == "3" #OR 처리
+        @posts =Post.where("title LIKE ? OR content LIKE ?", "%#{params[:q]}%","%#{params[:q]}%")
+      elsif params[:cate] == "4"  #작성자 검색은 조금 다름
+        @posts = User.where("username LIKE ?","%#{params[:q]}%").take.posts
+      end
+  end
 end
