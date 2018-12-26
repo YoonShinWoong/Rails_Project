@@ -1,0 +1,26 @@
+<%= render "navbar" %>
+ 
+<div class="container">
+ 
+    <div class="alert alert-dark" role="alert">
+        <h2><%=@post.title%></h2>
+        <hr>
+        <%=@post.content%>
+    </div>
+    <a href="/posts/index">목록</a>
+    <a href="/posts/edit/<%= @post.id %>">수정</a>
+    <a href="/posts/destroy/<%= @post.id %>">삭제</a>
+ 
+    <h2>댓글</h2><br>
+    <form action="/replies/create" method="post">
+        <input type="text" name="content" placeholder="댓글 내용을 입력하세요" style="width:80%"></input> 
+        <input type="hidden" name="post_id" value=<%= @post.id %> ></input>
+        <button type="submit" class="btn btn-primary">작성</button>
+    </form>
+    
+    <% @post.replies.each do |r| %>
+        <%= r.content %> 
+        <a href="/replies/destroy/<%= r.id %>">삭제</a><br>
+    <% end %>
+ 
+</div>

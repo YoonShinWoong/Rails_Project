@@ -1,0 +1,25 @@
+<%= render "navbar" %>
+ 
+<div class="container">
+    <table class="table">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">User</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @num = 1%>
+        <% @posts.each do |p| %>
+            <tr>
+            <th scope="row"><%=@num%></th>
+            <td><a href="/posts/show/<%=p.id%>"><%=p.title%></a></td>
+            <td>user</td>
+            </tr>
+            <% @num += 1 %>
+        <% end %>
+    </tbody>
+    </table>
+    <a href="/posts/new"><button class="btn btn-secondary">글쓰기</button> </a>
+</div>

@@ -1,0 +1,13 @@
+<%= render "navbar" %>
+ 
+<div class="container">
+    <h1>새 글 작성_게시판 </h1>
+ 
+    <form action="/posts/create" method="post" enctype="multipart/form-data">
+ 
+      title:<br> <input type="text" name="title" placeholder="제목을 입력하세요" style="width:80%"><br>
+      content:<br> <textarea name="content"  placeholder="내용을 입력하세요" style="width:80%" rows="10"></textarea><br>
+      <button type="submit" class="btn btn-primary">작성</button>
+ 
+    </form>
+</div>
