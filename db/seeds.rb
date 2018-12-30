@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+(1..100).each do |i|
+    Post.create(title:"#{i}번째", content:"#{i}번째", user_id:1) 
+ end

@@ -17,11 +17,13 @@
             <th scope="row"><%=@num%></th>
             <td><a href="/posts/show/<%=p.id%>"><%=p.title%></a></td>
             <td><%=p.user.username%></td>
-            <td><%= time_ago_in_words(p.created_at)%> ago </td>
+            <td><%= time_ago_in_words(p.created_at)%> 전 </td>
             </tr>
             <% @num += 1 %>
         <% end %>
     </tbody>
     </table>
     <a href="/posts/new"><button class="btn btn-secondary">글쓰기</button> </a>
+    <%= page_entries_info @posts %>
+    <%= paginate @posts %>
 </div>

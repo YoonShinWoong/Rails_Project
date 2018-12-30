@@ -22,7 +22,8 @@ class PostsController < ApplicationController
   end
  
   def index
-    @posts = Post.all.reverse
+    @posts = Post.order("created_at DESC").page(params[:page]).per(10)
+    @page = (params[:page]).to_i
   end
  
   # U 수정하기------------------------------------------------

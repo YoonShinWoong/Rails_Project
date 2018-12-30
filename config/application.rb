@@ -12,6 +12,7 @@ module Practice
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Seoul'
+    config.i18n.default_locale = :ko
     
   end
 end
