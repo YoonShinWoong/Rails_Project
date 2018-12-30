@@ -5,8 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'devise'
-gem 'kaminari'
+gem 'devise' # 로그인
+gem 'kaminari' # 페이지 나누기
+gem 'impressionist' # 조회수
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'

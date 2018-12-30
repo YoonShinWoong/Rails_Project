@@ -8,6 +8,7 @@
         <th scope="col">Title</th>
         <th scope="col">User</th>
         <th scope="col">Time</th>
+        <th scope="col">View</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
             <td><a href="/posts/show/<%=p.id%>"><%=p.title%></a></td>
             <td><%=p.user.username%></td>
             <td><%= time_ago_in_words(p.created_at)%> 전 </td>
+            <td><%= "#{p.unique_impression_count}" %></td>
             </tr>
             <% @num += 1 %>
         <% end %>
