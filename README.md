@@ -5,3 +5,5 @@
 181228. Like
 181229. Pagination
 181230. Language, Impressionist
+
+190101. Tinymce
