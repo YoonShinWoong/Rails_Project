@@ -6,7 +6,7 @@
         <h2><%=@post.title%></h2>
         <h4><%= @post.user.username %></h4>
         <hr>
-        <%=@post.content%>
+        <%= content_tag(:div, @post.content.html_safe, :class => "panel-body") %>
     </div>
     <a href="/posts/index">목록</a>
     <a href="/posts/edit/<%= @post.id %>">수정</a>

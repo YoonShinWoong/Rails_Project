@@ -9,6 +9,10 @@ gem 'devise' # 로그인
 gem 'kaminari' # 페이지 나누기
 gem 'impressionist' # 조회수
 
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta' # tinymce
+gem 'carrierwave' # 이미지 업로드 
+gem 'fog', '~> 1.41.0' # 이미지 원격 저장소
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
 # Use sqlite3 as the database for Active Record
